@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Row } from 'react-bootstrap';
 import StoreProduct from './StoreProduct';
 
 // We have the productsArr array with product data.
@@ -27,14 +28,22 @@ const productsArr = [
 
 
 // We render each product as a separate <div> with an image, title, and price in the ProductsScreen component by mapping through the productsArr array.
+
+
 function ProductsScreen() {
   return (
-    <div className="products-container">
-      {productsArr.map((product, index) => (
-        <StoreProduct key={index} product={product} />
-      ))}
-    </div>
+    <Container>
+      <Row>
+        {productsArr.map((product, index) => (
+          <StoreProduct
+            key={index}
+            product={product}
+          />
+        ))}
+      </Row>
+    </Container>
   );
 }
 
 export default ProductsScreen;
+
