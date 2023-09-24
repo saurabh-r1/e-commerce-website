@@ -1,19 +1,31 @@
-
+// StoreProduct.js
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Button, Row, Col } from 'react-bootstrap';
+import './StoreProduct.css';
+import { useCart } from './CartContext'; // Import the useCart hook
 
-// The StoreProduct component receives a product prop, which is an individual product from the array.
 function StoreProduct(props) {
-  // destructuring assignment to extract title, price, and imageUrl from the props.product object.
   const { title, price, imageUrl } = props.product;
+  const { addToCart } = useCart(); // Use the addToCart function from the context
 
   return (
     <div className="col-md-4 mb-4">
       <Card>
-        <Card.Img variant="top" src={imageUrl} alt={title} />
+        <Card.Title className="text-center mt-3">{title}</Card.Title>
+        <div className="zoom-image">
+          <Card.Img variant="top" src={imageUrl} alt={title} />
+        </div>
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>${price}</Card.Text>
+          <Row>
+            <Col xs={6} className="text-start">
+              <Card.Text>${price}</Card.Text>
+            </Col>
+            <Col xs={6} className="text-end">
+              <Button variant="primary" onClick={() => addToCart(props.product)}>
+                Add to Cart
+              </Button>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
     </div>
@@ -21,6 +33,3 @@ function StoreProduct(props) {
 }
 
 export default StoreProduct;
-
-
-
