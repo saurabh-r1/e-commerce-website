@@ -1,10 +1,10 @@
-// App.js
 import React from 'react';
 import ProductsScreen from './ProductsScreen';
 import { CartProvider } from './CartContext';
 import MyNavbar from './MyNavbar';
-import About from './About'; // Import the About component
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use Routes instead of Route
+import About from './About';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
@@ -12,9 +12,10 @@ function App() {
       <CartProvider>
         <Router>
           <MyNavbar />
-          <Routes> {/* Wrap your routes in a Routes component */}
-            <Route path="/" element={<ProductsScreen />} /> {/* Use 'element' prop */}
-            <Route path="/about" element={<About />} /> {/* Use 'element' prop */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<ProductsScreen />} />
+            <Route path="/about" element={<About />} />
           </Routes>
         </Router>
       </CartProvider>

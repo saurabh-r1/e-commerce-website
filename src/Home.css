@@ -1,0 +1,81 @@
+
+
+/* Styling for the first div */
+.first-div {
+    background-color: lightgray;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .first-div h1 {
+    font-size: 36px;
+    color: black;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .first-div button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+    border-color: blue;
+    color: blue;
+  }
+  
+  .first-div button:hover {
+    background-color: blue;
+    color: lightgray;
+  }
+  
+  .first-div .play-button {
+    font-size: 36px;
+    margin-top: 20px;
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .first-div .play-button:hover {
+    text-decoration: underline;
+  }
+  
+  /* Styling for the second div */
+  .second-div {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .second-div h2 {
+    font-weight: bold;
+  }
+  
+  /* Styling for the tour table */
+  .tour-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .tour-table th,
+  .tour-table td {
+    border-bottom: 1px solid #000;
+    padding: 8px 0;
+    text-align: left;
+  }
+  
+  .tour-table .tour-date {
+    font-weight: bold;
+    color: black;
+  }
+  
+  .tour-table .tour-button {
+    font-weight: bold;
+    background-color: blue;
+    border-color: blue;
+  }
+  
+  .tour-table .tour-button:hover {
+    background-color: lightblue;
+    color: blue;
+  }
+  
