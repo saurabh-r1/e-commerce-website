@@ -37,7 +37,7 @@ function ProductsScreen() {
         <h1>The Generics</h1>
       </div>
       <div className="second-div">
-      <h2>MUSIC</h2>
+      <h2>Music</h2>
     </div>
    
     <Container className="mt-2">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import Cart from './Cart';
+import Cart from '../Store/Cart';
 import { NavLink } from 'react-router-dom';
 
 function MyNavbar() {
@@ -10,9 +10,9 @@ function MyNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link as={NavLink} to="/" >Home</Nav.Link> {/* Add Home link */}
-            <Nav.Link as={NavLink} to="/products">Store</Nav.Link>
-            <Nav.Link as={NavLink} to="/about">About Us</Nav.Link>
+            <Nav.Link as={NavLink} to="/" >HOME</Nav.Link> {/* Add Home link */}
+            <Nav.Link as={NavLink} to="/products">STORE</Nav.Link>
+            <Nav.Link as={NavLink} to="/about">ABOUT US</Nav.Link>
           </Nav>
           <Cart />
         </Navbar.Collapse>

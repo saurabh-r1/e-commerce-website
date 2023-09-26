@@ -51,6 +51,7 @@
   }
   
   .second-div h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: bold;
   }
   
@@ -74,19 +75,20 @@
   }
   
   .tour-table .tour-button {
-    font-weight: bold;
-    background-color: #56ccf2;
+    /* font-weight: bold; */
+    color: #56ccf2;
+    background-color: #fff;
     border-color: #56ccf2;
   }
   
   .tour-table .tour-button:hover {
-    background-color: lightblue;
-    color: blue;
+    background-color: #56ccf2;;
+    color: #fff;
   }
 
   .third-div {
     margin-top: 45px;
-    background-color: blue;
+    background-color: #56ccf2;;
     text-align: center;
     color: white;
     padding: 20px 0;

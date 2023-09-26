@@ -1,9 +1,9 @@
 import React from 'react';
-import ProductsScreen from './ProductsScreen';
-import { CartProvider } from './CartContext';
-import MyNavbar from './MyNavbar';
-import About from './About';
-import Home from './Home';
+import ProductsScreen from './Store/ProductsScreen';
+import { CartProvider } from './Store/CartContext';
+import MyNavbar from './Navbar/MyNavbar';
+import About from './About/About';
+import Home from './Home/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
