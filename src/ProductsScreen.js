@@ -32,7 +32,15 @@ const productsArr = [
 
 function ProductsScreen() {
   return (
-    <Container>
+    <div>
+      <div className="first-div">
+        <h1>The Generics</h1>
+      </div>
+      <div className="second-div">
+      <h2>MUSIC</h2>
+    </div>
+   
+    <Container className="mt-2">
       <Row>
         {productsArr.map((product, index) => (
           <StoreProduct
@@ -42,6 +50,7 @@ function ProductsScreen() {
         ))}
       </Row>
     </Container>
+    </div>
   );
 }
 

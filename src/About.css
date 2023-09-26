@@ -1,0 +1,53 @@
+/* About.css */
+
+
+/* Styling for the first div */
+.first-div {
+  background-color: rgb(104, 100, 100);
+  padding: 20px;
+  text-align: center;
+}
+
+.first-div h1 {
+  font-size: 86px;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Styling for the second div */
+.second-div {
+  text-align: center;
+}
+
+.second-div h2 {
+  font-weight: bold;
+}
+
+
+/* Style for the image-text container */
+.image-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap between the image and text */
+    margin: 185px;
+    margin-top: 20px;
+  }
+  
+  /* Style for the circular image */
+  .circular-image {
+
+    width: 250px; /* Adjust the image size as needed */
+    height: 250px; /* Adjust the image size as needed */
+    border-radius: 50%; /* Creates a circular shape */
+    object-fit: cover; /* Maintain image aspect ratio and cover the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  }
+  
+  /* Style for the paragraphs */
+  .image-text-container p {
+    font-size: 16px; /* Adjust the font size as needed */
+    line-height: 1.5; /* Adjust the line height for readability */
+  }
+  

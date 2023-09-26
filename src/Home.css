@@ -2,40 +2,45 @@
 
 /* Styling for the first div */
 .first-div {
-    background-color: lightgray;
+    background-color: rgb(151, 149, 149);
     padding: 20px;
     text-align: center;
   }
   
   .first-div h1 {
-    font-size: 36px;
-    color: black;
+    font-size: 96px;
+    color: #fff;
     margin-top: 20px;
     font-weight: bold;
   }
   
   .first-div button {
-    padding: 10px 20px;
-    font-size: 18px;
+    background: transparent;
+    border-radius: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 13px 35px;
+    font-size: 21px;
     margin-top: 20px;
-    font-weight: bold;
-    border-color: blue;
-    color: blue;
+    /* font-weight: bold; */
+    border-color: #56ccf2;
+    color: #fff;
   }
   
   .first-div button:hover {
-    background-color: blue;
-    color: lightgray;
+    background-color: #56ccf2;
+    color: #fff;
   }
   
   .first-div .play-button {
+    border-radius: 50%;
     font-size: 36px;
     margin-top: 20px;
-    color: blue;
+    color: #56ccf2;
     text-decoration: none;
   }
   
   .first-div .play-button:hover {
+    color: #fff;
     text-decoration: underline;
   }
   
@@ -70,12 +75,20 @@
   
   .tour-table .tour-button {
     font-weight: bold;
-    background-color: blue;
-    border-color: blue;
+    background-color: #56ccf2;
+    border-color: #56ccf2;
   }
   
   .tour-table .tour-button:hover {
     background-color: lightblue;
     color: blue;
+  }
+
+  .third-div {
+    margin-top: 45px;
+    background-color: blue;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
   }
   

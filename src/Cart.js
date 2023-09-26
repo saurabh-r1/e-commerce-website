@@ -1,4 +1,4 @@
-// Cart.js
+
 import React, { useState } from 'react';
 import { Button, Modal, Table } from 'react-bootstrap';
 import { useCart } from './CartContext';
@@ -12,7 +12,7 @@ function Cart() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button style={{background:'#000'}} onClick={handleShow}>
         Cart ({cartCount})
       </Button>
 

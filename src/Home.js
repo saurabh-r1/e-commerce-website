@@ -2,27 +2,44 @@ import React from 'react';
 import { Container, Button } from 'react-bootstrap';
 import './Home.css'
 
-// Define your tour data
 const tourData = [
   {
     date: 'JUL 16',
     location: 'DETROIT, MI',
     venue: 'DTE ENERGY MUSIC THEATRE',
-    ticketLink: '#', // Replace with the actual ticket purchase link
+    ticketLink: '#', 
   },
   {
     date: 'JUL 19',
     location: 'TORONTO, ON',
     venue: 'BUDWEISER STAGE',
-    ticketLink: '#', // Replace with the actual ticket purchase link
+    ticketLink: '#', 
   },
   {
     date: 'JUL 22',
     location: 'BRISTOW, VA',
     venue: 'JIGGY LUBE LIVE',
-    ticketLink: '#', // Replace with the actual ticket purchase link
+    ticketLink: '#', 
   },
-  // Add more tour entries as needed
+  {
+    date: 'JUL 29',
+    location: 'PHOENIX, AZ',
+    venue: 'AK-CHIN PAVILION',
+    ticketLink: '#', 
+  },
+  {
+    date: 'AUG 2',
+    location: 'LAS VEGAS, NV',
+    venue: 'T-MOBILE ARENA',
+    ticketLink: '#', 
+  },
+  {
+    date: 'AUG 7',
+    location: 'CONCORD, CA',
+    venue: 'CONCORD PAVILION',
+    ticketLink: '#', 
+  },
+  
 ];
 
 function Home() {
@@ -31,9 +48,11 @@ function Home() {
       {/* First Div */}
       <div className="first-div">
         <h1>The Generics</h1>
-        <Button variant="outline-primary">Get our latest album</Button>
+        <Button style={{fontFamily:'Arial'}}>
+          Get our Latest Album
+        </Button>
         <br />
-        <Button variant="link">&#9654;</Button>
+        <Button className='play-button' variant="link">&#9654;</Button>
       </div>
 
       {/* Second Div */}
@@ -61,6 +80,11 @@ function Home() {
           </tbody>
         </table>
       </Container>
+
+       <div className="third-div">
+        <h1>The Generic</h1>
+      </div>
+
     </div>
   );
 }
