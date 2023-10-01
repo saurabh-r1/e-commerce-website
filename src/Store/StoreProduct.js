@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "./StoreProduct.css";
 import { useCart } from "./CartContext";
+import { Link } from "react-router-dom";
 
 function StoreProduct(props) {
   const { title, price, imageUrl } = props.product;
@@ -13,13 +14,15 @@ function StoreProduct(props) {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>${price}</Card.Text>
-        <Button
-          variant="primary"
-          onClick={() => addToCart(props.product)}
-          className="add-to-cart"
+        <Link to="#" 
+        onClick={() => addToCart(props.product)}
+        className="add-to-cart"
         >
-          Add to Cart
-        </Button>
+                <Button variant="primary">
+                  Add to Cart
+                </Button>
+              </Link>
+        
       </Card.Body>
     </div>
   );
