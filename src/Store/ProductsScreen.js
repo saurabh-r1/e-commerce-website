@@ -1,34 +1,8 @@
 import React from "react";
-import { Container, Row } from 'react-bootstrap';
-import StoreProduct from './StoreProduct';
-
-// We have the productsArr array with product data.
-const productsArr = [
-  {
-    title: "Colors",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-  },
-  {
-    title: "Black and White Colors",
-    price: 50,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-  },
-  {
-    title: "Yellow and Black Colors",
-    price: 70,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-  },
-  {
-    title: "Blue Color",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-  },
-];
-
-
-// We render each product as a separate <div> with an image, title, and price in the ProductsScreen component by mapping through the productsArr array.
-
+import { Link } from "react-router-dom";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import StoreProduct from "./StoreProduct";
+import { productsArr } from "../ProductDetails/productData";
 
 function ProductsScreen() {
   return (
@@ -37,22 +11,24 @@ function ProductsScreen() {
         <h1>The Generics</h1>
       </div>
       <div className="second-div">
-      <h2>Music</h2>
-    </div>
-   
-    <Container className="mt-2">
-      <Row>
-        {productsArr.map((product, index) => (
-          <StoreProduct
-            key={index}
-            product={product}
-          />
-        ))}
-      </Row>
-    </Container>
+        <h2>Music</h2>
+      </div>
+
+      <Container className="mt-4">
+        <Row xs={1} md={2} lg={3} className="g-4">
+          {productsArr.map((product, index) => (
+            <Col key={index}>
+              <Link to={`/products/${product.id}`} className="product-link">
+                <Card className="zoom-image">
+                  <StoreProduct product={product} />
+                </Card>
+              </Link>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 }
 
 export default ProductsScreen;
-

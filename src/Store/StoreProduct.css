@@ -1,12 +1,20 @@
-
 .zoom-image {
-    overflow: hidden; /* Hide overflow for zoom effect */
-    position: relative;
-  }
-  
-  .zoom-image:hover img {
-    transform: scale(1.1); /* Apply the zoom-in effect on hover */
-    cursor: pointer; /* Change cursor to a pointer on hover */
-    transition: transform 0.7s; /* Add a smooth transition for the transform property */
-  }
-  
+  overflow: hidden; /* Hide overflow for zoom effect */
+  position: relative;
+}
+
+.zoom-image:hover img {
+  transform: scale(1.1); /* Apply the zoom-in effect on hover */
+  cursor: pointer; /* Change cursor to a pointer on hover */
+  transition: transform 0.7s; /* Add a smooth transition for the transform property */
+}
+
+.product-link {
+  text-decoration: none; /* Remove link underline */
+  color: inherit; /* Inherit text color from parent */
+}
+
+.add-to-cart {
+  width: 100%;
+  margin-top: 10px;
+}

@@ -1,44 +1,35 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Import Axios
 import './ContactUs.css';
 
 function ContactUs() {
-  // Define state variables for form inputs
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
 
-  // Function to handle form submission and post data to Firebase
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prepare the data to be posted to Firebase
-    const formData = {
+    // Create a data object with the user's input
+    const userData = {
       name,
       email,
-      phone,
+      phoneNumber,
     };
 
-    // Perform the POST request to Firebase
-    try {
-      const response = await fetch('https://api-call-react-7d7f8-default-rtdb.firebaseio.com/contact.json', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+    // Make a POST request to Firebase using Axios
+    axios
+      .post('https://api-call-react-7d7f8-default-rtdb.firebaseio.com/contacts.json', userData)
+      .then((response) => {
+        console.log('Data saved successfully:', response.data);
+        // Clear the form fields after successful submission
+        setName('');
+        setEmail('');
+        setPhoneNumber('');
+      })
+      .catch((error) => {
+        console.error('Error saving data:', error);
       });
-
-      if (response.ok) {
-        // Data posted successfully
-        console.log('Data posted to Firebase successfully');
-        // You can redirect the user or show a success message here
-      } else {
-        // Handle error cases
-        console.error('Failed to post data to Firebase');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
   };
 
   return (
@@ -58,7 +49,7 @@ function ContactUs() {
             required
           />
         </div>
-        <div >
+        <div className="form-group">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -71,20 +62,20 @@ function ContactUs() {
             required
           />
         </div>
-        <div>
-          <label htmlFor="phone" className="form-label">
+        <div className="form-group">
+          <label htmlFor="phoneNumber" className="form-label">
             Phone Number
           </label>
           <input
             type="tel"
             className="form-control"
-            id="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            id="phoneNumber"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary button">
+        <button type="submit" className="submit-button">
           Submit
         </button>
       </form>

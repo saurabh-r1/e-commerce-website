@@ -5,6 +5,7 @@ import MyNavbar from './Navbar/MyNavbar';
 import About from './About/About';
 import Home from './Home/Home';
 import ContactUs from './ContactUs/ContactUs';
+import ProductDetails from './ProductDetails/ProductDetails';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/products" element={<ProductsScreen />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/products/:productId" element={<ProductDetails />} />
           </Routes>
         </Router>
       </CartProvider>

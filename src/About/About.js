@@ -48,6 +48,25 @@ function About() {
             velit, sit amet vehicula justo libero eu metus.
           </p>
         </div>
+        <div>
+        In eget interdum est, a ultricies justo. Curabitur sit amet malesuada
+            nulla. Nulla venenatis, leo id lacinia lacinia, massa dolor facilisis
+            velit, sit amet vehicula justo libero eu metus.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo
+            ipsum vel tortor eleifend, a tincidunt neque tempor. Nullam nec libero
+            et orci iaculis cursus non a elit. Sed condimentum massa vel mattis.
+            In eget interdum est, a ultricies justo. Curabitur sit amet malesuada
+            nulla. Nulla venenatis, leo id lacinia lacinia, massa dolor facilisis
+            velit, sit amet vehicula justo libero eu metus.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo
+            ipsum vel tortor eleifend, a tincidunt neque tempor. Nullam nec libero
+            et orci iaculis cursus non a elit. Sed condimentum massa vel mattis.
+         
+            In eget interdum est, a ultricies justo. Curabitur sit amet malesuada
+            nulla. Nulla venenatis, leo id lacinia lacinia, massa dolor facilisis
+            velit, sit amet vehicula justo libero eu metus.
+        </div>
+
       </div>
     </div>
   );
