@@ -38,7 +38,7 @@ function ContactUs() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name" className="form-label">
-            Name
+            Name:-
           </label>
           <input
             type="text"
@@ -51,7 +51,7 @@ function ContactUs() {
         </div>
         <div className="form-group">
           <label htmlFor="email" className="form-label">
-            Email
+            Email:-
           </label>
           <input
             type="email"
@@ -64,7 +64,7 @@ function ContactUs() {
         </div>
         <div className="form-group">
           <label htmlFor="phoneNumber" className="form-label">
-            Phone Number
+            Phone Number:-
           </label>
           <input
             type="tel"
