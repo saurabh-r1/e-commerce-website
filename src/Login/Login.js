@@ -1,13 +1,19 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import './Login.css';
 import { useNavigate } from 'react-router-dom';
 
+import AuthContext from '../Authentication/AuthContext';
+import './Login.css';
+
+
 const Login = () => {
+  const history = useNavigate();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
+
+  const authCtx = useContext(AuthContext);
 
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,13 +22,15 @@ const Login = () => {
     setIsLogin(!isLogin); // Toggle the state to show/hide sign-up form
   };
 
-  const history = useNavigate();
+  
   
   const submitHandler = (event) => {
     event.preventDefault();
   
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
+
+    
   
     // Add validation
   
@@ -30,10 +38,8 @@ const Login = () => {
   
     let url;
     if (isLogin) {
-      // Firebase login URL
       url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCPnLr0etqfApG2qj47inls6jThdRCKIN4`;
     } else {
-      // Firebase signup URL
       url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCPnLr0etqfApG2qj47inls6jThdRCKIN4`;
     }
   
@@ -51,10 +57,8 @@ const Login = () => {
       .then((res) => {
         setIsLoading(false);
         if (res.ok) {
-          // Signup or login successful
           return res.json();
         } else {
-          // Handle signup or login error
           return res.json().then((data) => {
             let errorMessage = 'Authentication failed!';
             if (data && data.error && data.error.message) {
@@ -65,7 +69,10 @@ const Login = () => {
         }
       })
       .then((data) => {
+        authCtx.login(data.idToken);
+        console.log(data.idToken);
         history('/products');
+        
       })
       .catch((err) => {
         alert(err.message);
