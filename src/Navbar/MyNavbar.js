@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import Cart from '../Store/Cart';
 import { NavLink } from 'react-router-dom';
-import AuthContext from '../Authentication/AuthContext'; // Import the AuthContext
+import AuthContext from '../Authentication/AuthContext'; 
 
 function MyNavbar() {
   const authCtx = useContext(AuthContext);
@@ -17,7 +17,7 @@ function MyNavbar() {
             <Nav.Link as={NavLink} to="/products">STORE</Nav.Link>
             <Nav.Link as={NavLink} to="/about">ABOUT US</Nav.Link>
             <Nav.Link as={NavLink} to="/contact">CONTACT US</Nav.Link>
-            {authCtx.isLoggedIn ? ( // Conditionally render "Logout" or "Login"
+            {authCtx.isLoggedIn ? ( 
               <Nav.Link as={NavLink} to="/login" onClick={authCtx.logout}>LOGOUT</Nav.Link>
             ) : (
               <Nav.Link as={NavLink} to="/login">LOGIN</Nav.Link>

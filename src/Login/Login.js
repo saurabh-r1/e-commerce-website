@@ -19,7 +19,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const toggle = () => {
-    setIsLogin(!isLogin); // Toggle the state to show/hide sign-up form
+    setIsLogin(!isLogin); 
   };
 
   
@@ -69,7 +69,7 @@ const Login = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
+        authCtx.login(data.idToken, data.email);
         console.log(data.idToken);
         history('/products');
         
