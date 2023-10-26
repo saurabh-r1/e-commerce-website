@@ -9,7 +9,7 @@ export function CartProvider({ children }) {
   // Fetch cart data from the API when the component mounts
   useEffect(() => {
     axios
-      .get('https://crudcrud.com/api/72d51ef6e884409e919175a52dfeca32/cart')
+      .get('https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart')
       .then((response) => {
         setCart(response.data);
       })
@@ -22,17 +22,20 @@ export function CartProvider({ children }) {
     const existingProduct = cart.find((item) => item.title === product.title);
 
     if (existingProduct) {
+      const { _id, ...existingProductWithout_Id } = existingProduct;
+      console.log(existingProductWithout_Id);
       const updatedCart = cart.map((item) =>
         item.title === product.title
           ? { ...item, quantity: item.quantity + 1 }
           : item
+
       );
       setCart(updatedCart);
 
       // Perform a PUT request to update the cart on the API
       axios
-        .put(`https://crudcrud.com/api/72d51ef6e884409e919175a52dfeca32/cart/${existingProduct._id}`, {
-          ...existingProduct,
+        .put(`https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart/${existingProduct._id}`, {
+          ...existingProductWithout_Id,
           quantity: existingProduct.quantity + 1,
         })
         .catch((error) => {
@@ -44,7 +47,7 @@ export function CartProvider({ children }) {
 
       // Perform a POST request to add the new product to the cart on the API
       axios
-        .post('https://crudcrud.com/api/72d51ef6e884409e919175a52dfeca32/cart', newProduct)
+        .post('https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart', newProduct)
         .catch((error) => {
           console.error('Error adding to cart:', error);
         });
@@ -57,7 +60,7 @@ export function CartProvider({ children }) {
 
     // Perform a DELETE request to remove the product from the API
     axios
-      .delete(`https://crudcrud.com/api/72d51ef6e884409e919175a52dfeca32/cart/${product._id}`)
+      .delete(`https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart/${product._id}`)
       .catch((error) => {
         console.error('Error removing from cart:', error);
       });
