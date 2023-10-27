@@ -70,7 +70,7 @@ const Login = () => {
       })
       .then((data) => {
         authCtx.login(data.idToken, data.email);
-        console.log(data.idToken);
+    
         history('/products');
         
       })

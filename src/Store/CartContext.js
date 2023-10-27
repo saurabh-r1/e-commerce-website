@@ -2,14 +2,18 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const CartContext = createContext();
+const userEmailFromStorage = localStorage.getItem('userEmail');
+const userEmail = userEmailFromStorage ? userEmailFromStorage.replace(/[@.]/g, '') : '';
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
+  
 
   // Fetch cart data from the API when the component mounts
   useEffect(() => {
+    
     axios
-      .get('https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart')
+      .get(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}`)
       .then((response) => {
         setCart(response.data);
       })
@@ -34,7 +38,7 @@ export function CartProvider({ children }) {
 
       // Perform a PUT request to update the cart on the API
       axios
-        .put(`https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart/${existingProduct._id}`, {
+        .put(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}/${existingProduct._id}`, {
           ...existingProductWithout_Id,
           quantity: existingProduct.quantity + 1,
         })
@@ -47,7 +51,7 @@ export function CartProvider({ children }) {
 
       // Perform a POST request to add the new product to the cart on the API
       axios
-        .post('https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart', newProduct)
+        .post(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}`, newProduct)
         .catch((error) => {
           console.error('Error adding to cart:', error);
         });
@@ -60,7 +64,7 @@ export function CartProvider({ children }) {
 
     // Perform a DELETE request to remove the product from the API
     axios
-      .delete(`https://crudcrud.com/api/2027e790f15143619afd0de142b42a9b/cart/${product._id}`)
+      .delete(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}/${product._id}`)
       .catch((error) => {
         console.error('Error removing from cart:', error);
       });
@@ -78,3 +82,5 @@ export function CartProvider({ children }) {
 export function useCart() {
   return useContext(CartContext);
 }
+
+
