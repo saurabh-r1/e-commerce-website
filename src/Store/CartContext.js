@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth } from '../Authentication/AuthContext';
 import axios from 'axios';
 
 const CartContext = createContext();
@@ -6,6 +7,7 @@ const userEmailFromStorage = localStorage.getItem('userEmail');
 const userEmail = userEmailFromStorage ? userEmailFromStorage.replace(/[@.]/g, '') : '';
 
 export function CartProvider({ children }) {
+  const { isLoggedIn } = useAuth();
   const [cart, setCart] = useState([]);
   
 
@@ -20,7 +22,7 @@ export function CartProvider({ children }) {
       .catch((error) => {
         console.error('Error fetching cart data:', error);
       });
-  }, []); // Empty dependency array ensures this effect runs once on mount
+  }, [isLoggedIn]); // Empty dependency array ensures this effect runs once on mount
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.title === product.title);

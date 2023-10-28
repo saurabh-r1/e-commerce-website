@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Modal, Table } from 'react-bootstrap';
 import { useCart } from './CartContext';
+import { useAuth } from '../Authentication/AuthContext';
 import './Cart.css';
 
 function Cart() {
   const [showCart, setShowCart] = useState(false);
   const { cart, cartCount, removeFromCart, increaseQuantity,decreaseQuantity } = useCart();
+  const authCtx = useAuth();
 
   const handleClose = () => setShowCart(false);
   const handleShow = () => setShowCart(true);
@@ -13,9 +15,11 @@ function Cart() {
   
   return (
     <>
+      {authCtx.isLoggedIn && (
       <Button style={{ background: "#000" }} onClick={handleShow}>
         Cart ({cartCount})
       </Button>
+      )}
 
       <Modal show={showCart} onHide={handleClose}>
         <Modal.Header>
