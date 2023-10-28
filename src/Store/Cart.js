@@ -1,23 +1,24 @@
-
 import React, { useState } from 'react';
 import { Button, Modal, Table } from 'react-bootstrap';
 import { useCart } from './CartContext';
+import './Cart.css';
 
 function Cart() {
   const [showCart, setShowCart] = useState(false);
-  const { cart, cartCount, removeFromCart } = useCart();
+  const { cart, cartCount, removeFromCart, increaseQuantity,decreaseQuantity } = useCart();
 
   const handleClose = () => setShowCart(false);
   const handleShow = () => setShowCart(true);
-
+  
+  
   return (
     <>
-      <Button style={{background:'#000'}} onClick={handleShow}>
+      <Button style={{ background: "#000" }} onClick={handleShow}>
         Cart ({cartCount})
       </Button>
 
       <Modal show={showCart} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Shopping Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -44,7 +45,25 @@ function Cart() {
                   </td>
                   <td>{item.title}</td>
                   <td>${item.price}</td>
-                  <td>{item.quantity}</td>
+                  <td>
+                    <div className="quantity-control">
+                      <Button
+                        variant="outline-danger"
+                        onClick={() => decreaseQuantity(item)}
+                        className="quantity-button"
+                      >
+                        -
+                      </Button>
+                      <span className="quantity">{item.quantity}</span>
+                      <Button
+                        variant="outline-success"
+                        onClick={() => increaseQuantity(item)}
+                        className="quantity-button"
+                      >
+                        +
+                      </Button>
+                    </div>
+                  </td>
                   <td>
                     <Button
                       variant="danger"

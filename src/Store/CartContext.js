@@ -13,7 +13,7 @@ export function CartProvider({ children }) {
   useEffect(() => {
     
     axios
-      .get(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}`)
+      .get(`https://crudcrud.com/api/cbb8fc96ea194796875c5ff8510ed069/Cart${userEmail}`)
       .then((response) => {
         setCart(response.data);
       })
@@ -27,7 +27,7 @@ export function CartProvider({ children }) {
 
     if (existingProduct) {
       const { _id, ...existingProductWithout_Id } = existingProduct;
-      console.log(existingProductWithout_Id);
+      
       const updatedCart = cart.map((item) =>
         item.title === product.title
           ? { ...item, quantity: item.quantity + 1 }
@@ -36,9 +36,8 @@ export function CartProvider({ children }) {
       );
       setCart(updatedCart);
 
-      // Perform a PUT request to update the cart on the API
       axios
-        .put(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}/${existingProduct._id}`, {
+        .put(`https://crudcrud.com/api/cbb8fc96ea194796875c5ff8510ed069/Cart${userEmail}/${existingProduct._id}`, {
           ...existingProductWithout_Id,
           quantity: existingProduct.quantity + 1,
         })
@@ -51,7 +50,7 @@ export function CartProvider({ children }) {
 
       // Perform a POST request to add the new product to the cart on the API
       axios
-        .post(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}`, newProduct)
+        .post(`https://crudcrud.com/api/cbb8fc96ea194796875c5ff8510ed069/Cart${userEmail}`, newProduct)
         .catch((error) => {
           console.error('Error adding to cart:', error);
         });
@@ -64,16 +63,63 @@ export function CartProvider({ children }) {
 
     // Perform a DELETE request to remove the product from the API
     axios
-      .delete(`https://crudcrud.com/api/3a95caa6d41f431993c43c71774c974d/Cart${userEmail}/${product._id}`)
+      .delete(`https://crudcrud.com/api/cbb8fc96ea194796875c5ff8510ed069/Cart${userEmail}/${product._id}`)
       .catch((error) => {
         console.error('Error removing from cart:', error);
       });
   };
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  
+  const increaseQuantity = (product) => {
+    const { _id, ...productWithout_Id } = product;
+    
+    const updatedCart = cart.map((item) =>
+      item.title === product.title
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+
+    setCart(updatedCart);
+
+    axios
+      .put(`https://crudcrud.com/api/cbb8fc96ea194796875c5ff8510ed069/Cart${userEmail}/${product._id}`, {
+        ...productWithout_Id,
+        quantity: productWithout_Id.quantity + 1,
+      })
+      .catch((error) => {
+        console.error('Error updating cart:', error);
+      });
+  };
+
+  const decreaseQuantity = (product) => {
+    const { _id, ...productWithout_Id } = product;
+
+    if (product.quantity > 1) {
+      const updatedCart = cart.map((item) =>
+        item.title === product.title
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+
+      setCart(updatedCart);
+
+      axios
+      .put(`https://crudcrud.com/api/cbb8fc96ea194796875c5ff8510ed069/Cart${userEmail}/${product._id}`, {
+        ...productWithout_Id,
+        quantity: productWithout_Id.quantity - 1,
+      })
+      .catch((error) => {
+        console.error('Error updating cart:', error);
+      });
+      
+    } else {
+      removeFromCart(product);
+    }
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartCount }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartCount,increaseQuantity,decreaseQuantity }}>
       {children}
     </CartContext.Provider>
   );
