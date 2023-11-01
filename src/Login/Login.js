@@ -38,9 +38,9 @@ const Login = () => {
   
     let url;
     if (isLogin) {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCPnLr0etqfApG2qj47inls6jThdRCKIN4`;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBT6eOzgGGuvwiYHMRSRaFril0Bq3DfyP8`;
     } else {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCPnLr0etqfApG2qj47inls6jThdRCKIN4`;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBT6eOzgGGuvwiYHMRSRaFril0Bq3DfyP8`;
     }
   
     fetch(url, {

@@ -19,7 +19,7 @@ function ContactUs() {
 
     // Make a POST request to Firebase using Axios
     axios
-      .post('https://api-call-react-7d7f8-default-rtdb.firebaseio.com/contacts.json', userData)
+      .post('https://api-call-5489d-default-rtdb.firebaseio.com/contacts.json', userData)
       .then((response) => {
         console.log('Data saved successfully:', response.data);
         // Clear the form fields after successful submission
