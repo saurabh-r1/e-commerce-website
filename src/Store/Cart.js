@@ -48,7 +48,7 @@ function Cart() {
                     />
                   </td>
                   <td>{item.title}</td>
-                  <td>${item.price}</td>
+                  <td>${item.price*item.quantity}</td>
                   <td>
                     <div className="quantity-control">
                       <Button

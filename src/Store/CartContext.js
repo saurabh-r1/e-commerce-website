@@ -15,7 +15,7 @@ export function CartProvider({ children }) {
   useEffect(() => {
     
     axios
-      .get(`https://crudcrud.com/api/a8f028d143d346fa84327d039c3d69a2/Cart${userEmail}`)
+      .get(`https://crudcrud.com/api/e29f57f0352e41778573a262262ff818/Cart${userEmail}`)
       .then((response) => {
         setCart(response.data);
       })
@@ -39,7 +39,7 @@ export function CartProvider({ children }) {
       setCart(updatedCart);
 
       axios
-        .put(`https://crudcrud.com/api/a8f028d143d346fa84327d039c3d69a2/Cart${userEmail}/${existingProduct._id}`, {
+        .put(`https://crudcrud.com/api/e29f57f0352e41778573a262262ff818/Cart${userEmail}/${existingProduct._id}`, {
           ...existingProductWithout_Id,
           quantity: existingProduct.quantity + 1,
         })
@@ -52,7 +52,7 @@ export function CartProvider({ children }) {
 
       // Perform a POST request to add the new product to the cart on the API
       axios
-        .post(`https://crudcrud.com/api/a8f028d143d346fa84327d039c3d69a2/Cart${userEmail}`, newProduct)
+        .post(`https://crudcrud.com/api/e29f57f0352e41778573a262262ff818/Cart${userEmail}`, newProduct)
         .catch((error) => {
           console.error('Error adding to cart:', error);
         });
@@ -65,7 +65,7 @@ export function CartProvider({ children }) {
   
     // Perform a DELETE request to remove the product from the API
     axios
-      .delete(`https://crudcrud.com/api/a8f028d143d346fa84327d039c3d69a2/Cart${userEmail}/${product._id}`)
+      .delete(`https://crudcrud.com/api/e29f57f0352e41778573a262262ff818/Cart${userEmail}/${product._id}`)
       .catch((error) => {
         console.error('Error removing from cart:', error);
       });
@@ -86,7 +86,7 @@ export function CartProvider({ children }) {
     setCart(updatedCart);
 
     axios
-      .put(`https://crudcrud.com/api/a8f028d143d346fa84327d039c3d69a2/Cart${userEmail}/${product._id}`, {
+      .put(`https://crudcrud.com/api/e29f57f0352e41778573a262262ff818/Cart${userEmail}/${product._id}`, {
         ...productWithout_Id,
         quantity: productWithout_Id.quantity + 1,
       })
@@ -108,7 +108,7 @@ export function CartProvider({ children }) {
       setCart(updatedCart);
 
       axios
-      .put(`https://crudcrud.com/api/a8f028d143d346fa84327d039c3d69a2/Cart${userEmail}/${product._id}`, {
+      .put(`https://crudcrud.com/api/e29f57f0352e41778573a262262ff818/Cart${userEmail}/${product._id}`, {
         ...productWithout_Id,
         quantity: productWithout_Id.quantity - 1,
       })
