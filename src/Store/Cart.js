@@ -78,6 +78,7 @@ function Cart() {
                   </td>
                 </tr>
               ))}
+              
             </tbody>
           </Table>
         </Modal.Body>
